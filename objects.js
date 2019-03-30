@@ -1,4 +1,4 @@
-//Objects.js
+//Objects.js file
 
 //it should store the todos array on an object
 var todosList = {
