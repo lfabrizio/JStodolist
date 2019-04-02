@@ -1,8 +1,3 @@
-// loops of logic 
-//display Todos should show .todoText
-// display Todos should show you if todos is empty
-// displayTodos should show completed 
-
 
 var todoList = {
   todos: [],
@@ -42,40 +37,63 @@ var todoList = {
     this.todos.splice(position, 1);
     this.displayTodos();
   },
-// toggle
-  toggleCompleted: function(position) {
-    var todo = this.todos[position];
-    todo.completed = !todo.completed;
-    this.displayTodos();
-  }
-};
 
- toggleAll: function() {
+toggleCompleted: function(position) {
+        var todo = this.todos[position];
+        todo.completed = !todo.completed;
+        this.displayTodos();
+    },
+    
+    toggleAll: function() {
         var totalTodos = this.todos.length;
         var completedTodos = 0;
-
-      
-        for (var i = 0; i < totalTodos; i++) {
-            if (this.todos[i].completed === true) {
+        
+  
+        for(var i = 0; i < totalTodos; i++){
+            if(this.todos[i].completed === true){
                 completedTodos++;
             }
         }
-      
-        if (completedTodos === totalTodos) {
-            for (var i = 0; i < totalTodos; i++) {
+        
+        if (completedTodos === totalTodos){
+            // make everything false
+            for (var i = 0; i < totalTodos; i++){
                 this.todos[i].completed = false;
             }
-          
-        }
-        else {
-            for (var i = 0; i < totalTodos; i++) {
+        
+        }else{
+            for(var i = 0; i < totalTodos; i++){
                 this.todos[i].completed = true;
             }
-
         }
         this.displayTodos();
-      
     }
 };
 
+//todosList.displayTodos();
+todosList.addTodo('first');
+todosList.addTodo('second');
 
+//todosList.changeTodo(0, 'second try');
+todosList.toggleCompleted(0);
+//todosList.toggleCompleted(1);
+todosList.toggleAll();
+
+
+
+
+
+
+// 1. We want to get access to the display todos button
+var displayTodosButton = document.getElementById('displayTodosButton');
+var toggleAllButton = document.getElementById('toggleAllButton');
+
+// 2. we Want to run displayTodos method, when someone clicks
+
+displayTodosButton.addEventListener('click', function() {
+   todoList.displayTodos();
+});
+
+toggleAllButton.addEventListener('click', function() {
+   todoList.toggleAll();
+});
