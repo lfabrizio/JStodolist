@@ -1,0 +1,16 @@
+h1 {
+    font-family: 'Georgia, serif';
+    color: black;
+    height: 50px;
+    text-align: center;
+}
+
+div {
+    display: center;
+    justify-content: center;
+    background-color: white;
+}
+
+body {
+    background-color: #008080;
+}

@@ -1,19 +1,32 @@
 // version10 is delete button and event listeners
 
+
+// version01
  var todoList = {
  todos: [],
+ 
+ // should have function to add todo text v02
+ 
+ // should have a display, add, change and delte method v03
  addTodo: function(todoText) {
    this.todos.push({
      todoText: todoText,
      completed: false
    });
  },
+ 
+ 
+ // todolist.changeTodo should change the todo text property version02
  changeTodo: function(position, todoText) {
    this.todos[position].todoText = todoText;
  },
+ 
+  // todolist.changeTodo should have a function to delete the todo text property version02
+ 
  deleteTodo: function(position) {
    this.todos.splice(position, 1);
  },
+ 
  toggleCompleted: function(position) {
    var todo = this.todos[position];
    todo.completed = !todo.completed;
@@ -28,7 +41,7 @@
        completedTodos++;
      }
    }
-
+// booleans
    // Case 1: If everything’s true, make everything false.
    if (completedTodos === totalTodos) {
      for (var i = 0; i < totalTodos; i++) {
@@ -58,7 +71,7 @@ var handlers = {
    changeTodoTextInput.value = '';
    view.displayTodos();
  },
- // We updated this in Version 10:
+ //  Version 10:
  deleteTodo: function(position) {
    todoList.deleteTodo(position);
    view.displayTodos();
